@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <!-- Bootstrap core CSS -->
+    <link href='{% static "barobaro/vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href='{% static "barobaro/css/shop-homepage.css" %}' rel="stylesheet">
+
+    <title>Title</title>
+
+    <style>
+        #type1 {
+            font-size: 3rem;
+            font-family: 맑은고딕, Malgun Gothic, dotum, gulim, sans-serif;
+            font-weight: bold;
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+<br></br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="http://127.0.0.1:8000">BaroBaro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/">Main</a>
+                </li>
+                <li class="nav-item">
+                    {% if request.session.user %}
+                        <a class="nav-link" href="http://127.0.0.1:8000/logout">Logout</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:8000/about">About
+                        <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h2>바로바로 서비스는...</h2>
+<h1 id="type1">"간단하게 부담없이 사용할 수 있는 배달 서비스를 지향합니다"</h1>
+</body>
+</html>
